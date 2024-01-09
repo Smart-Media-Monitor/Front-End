@@ -1,18 +1,3 @@
-/**
-=========================================================
-* Soft UI Dashboard React - v4.0.1
-=========================================================
-
-* Product Page: https://www.creative-tim.com/product/soft-ui-dashboard-react
-* Copyright 2023 Creative Tim (https://www.creative-tim.com)
-
-Coded by www.creative-tim.com
-
- =========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-*/
-
 import { useState } from "react";
 
 // @mui material components
@@ -39,7 +24,7 @@ function PlatformSettings() {
         </SoftTypography>
       </SoftBox>
       <SoftBox pt={1.5} pb={2} px={2} lineHeight={1.25}>
-        <SoftTypography variant="caption" fontWeight="bold" color="text" textTransform="uppercase">
+        {/* <SoftTypography variant="caption" fontWeight="bold" color="text" textTransform="uppercase">
           account
         </SoftTypography>
         <SoftBox display="flex" py={1} mb={0.25}>
@@ -71,7 +56,7 @@ function PlatformSettings() {
               Email me when someone mentions me
             </SoftTypography>
           </SoftBox>
-        </SoftBox>
+        </SoftBox> */}
         <SoftBox mt={3}>
           <SoftTypography
             variant="caption"

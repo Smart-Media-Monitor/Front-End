@@ -91,9 +91,9 @@ function DefaultNavbar({ transparent, light, action }) {
           backdropFilter: transparent ? "none" : `saturate(200%) blur(30px)`,
         })}
       >
-        <SoftBox component={Link} to="/" py={transparent ? 1.5 : 0.75} lineHeight={1}>
+        <SoftBox py={transparent ? 1.5 : 0.75} lineHeight={1}>
           <SoftTypography variant="button" fontWeight="bold" color={light ? "white" : "dark"}>
-            Soft UI Dashboard
+            Smart Media Monitor
           </SoftTypography>
         </SoftBox>
         <SoftBox color="inherit" display={{ xs: "none", lg: "flex" }} m={0} p={0}>
@@ -112,7 +112,7 @@ function DefaultNavbar({ transparent, light, action }) {
             light={light}
           />
         </SoftBox>
-        {action &&
+        {/* {action &&
           (action.type === "internal" ? (
             <SoftBox display={{ xs: "none", lg: "inline-block" }}>
               <SoftButton
@@ -138,10 +138,10 @@ function DefaultNavbar({ transparent, light, action }) {
                 size="small"
                 circular
               >
-                {action.label}
+                Hwllo
               </SoftButton>
             </SoftBox>
-          ))}
+          ))} */}
         <SoftBox
           display={{ xs: "inline-block", lg: "none" }}
           lineHeight={0}

@@ -113,10 +113,10 @@ function Header() {
           <Grid item>
             <SoftBox height="100%" mt={0.5} lineHeight={1}>
               <SoftTypography variant="h5" fontWeight="medium">
-                Alex Thompson
+                Mohammad Anas
               </SoftTypography>
               <SoftTypography variant="button" color="text" fontWeight="medium">
-                CEO / Co-Founder
+                CEO | DataWorks Inc.
               </SoftTypography>
             </SoftBox>
           </Grid>
@@ -128,9 +128,9 @@ function Header() {
                 onChange={handleSetTabValue}
                 sx={{ background: "transparent" }}
               >
-                <Tab label="App" icon={<Cube />} />
+                {/* <Tab label="App" icon={<Cube />} />
                 <Tab label="Message" icon={<Document />} />
-                <Tab label="Settings" icon={<Settings />} />
+                <Tab label="Settings" icon={<Settings />} /> */}
               </Tabs>
             </AppBar>
           </Grid>
