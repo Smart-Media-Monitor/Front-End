@@ -25,15 +25,14 @@ function BuildByDevelopers() {
                 </SoftTypography>
               </SoftBox>
               <SoftTypography variant="h5" fontWeight="bold" gutterBottom>
-                Soft UI Dashboard
+                Comments/Reviews
               </SoftTypography>
               <SoftBox mb={6}>
                 <SoftTypography variant="body2" color="text">
-                  From colors, cards, typography to complex elements, you will find the full
-                  documentation.
+                    Here labelled comments will be displayed with slicer on the label.
                 </SoftTypography>
               </SoftBox>
-              <SoftTypography
+              {/* <SoftTypography
                 component="a"
                 href="#"
                 variant="button"
@@ -59,7 +58,7 @@ function BuildByDevelopers() {
               >
                 Read More
                 <Icon sx={{ fontWeight: "bold" }}>arrow_forward</Icon>
-              </SoftTypography>
+              </SoftTypography> */}
             </SoftBox>
           </Grid>
           <Grid item xs={12} lg={5} sx={{ position: "relative", ml: "auto" }}>

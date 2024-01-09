@@ -46,16 +46,15 @@ function WorkWithTheRockets() {
         >
           <SoftBox mb={3} pt={1}>
             <SoftTypography variant="h5" color="white" fontWeight="bold">
-              Work with the rockets
+              Interactive QnA with your Data!
             </SoftTypography>
           </SoftBox>
           <SoftBox mb={2}>
             <SoftTypography variant="body2" color="white">
-              Wealth creation is an evolutionarily recent positive-sum game. It is all about who
-              take the opportunity first.
+              Ask me for any suggestion or content generation for your business.
             </SoftTypography>
           </SoftBox>
-          <SoftTypography
+          {/* <SoftTypography
             component="a"
             href="#"
             variant="button"
@@ -81,7 +80,7 @@ function WorkWithTheRockets() {
           >
             Read More
             <Icon sx={{ fontWeight: "bold" }}>arrow_forward</Icon>
-          </SoftTypography>
+          </SoftTypography> */}
         </SoftBox>
       </SoftBox>
     </Card>

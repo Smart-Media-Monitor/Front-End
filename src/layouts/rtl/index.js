@@ -136,7 +136,7 @@ function RTL() {
                     <SoftTypography variant="button" color="text" fontWeight="medium">
                       4% أكثر في عام{" "}
                       <SoftTypography variant="button" color="text" fontWeight="regular">
-                        2021
+                        2023
                       </SoftTypography>
                     </SoftTypography>
                   </SoftBox>

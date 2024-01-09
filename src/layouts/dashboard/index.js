@@ -1,18 +1,3 @@
-/**
-=========================================================
-* Soft UI Dashboard React - v4.0.1
-=========================================================
-
-* Product Page: https://www.creative-tim.com/product/soft-ui-dashboard-react
-* Copyright 2023 Creative Tim (https://www.creative-tim.com)
-
-Coded by www.creative-tim.com
-
- =========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-*/
-
 // @mui material components
 import Grid from "@mui/material/Grid";
 import Icon from "@mui/material/Icon";
@@ -54,15 +39,15 @@ function Dashboard() {
           <Grid container spacing={3}>
             <Grid item xs={12} sm={6} xl={3}>
               <MiniStatisticsCard
-                title={{ text: "today's money" }}
-                count="$53,000"
-                percentage={{ color: "success", text: "+55%" }}
+                title={{ text: "Total Likes" }}
+                count="532,013"
+                percentage={{ color: "success", text: "+35%" }}
                 icon={{ color: "info", component: "paid" }}
               />
             </Grid>
             <Grid item xs={12} sm={6} xl={3}>
               <MiniStatisticsCard
-                title={{ text: "today's users" }}
+                title={{ text: "today's viewers" }}
                 count="2,300"
                 percentage={{ color: "success", text: "+3%" }}
                 icon={{ color: "info", component: "public" }}
@@ -70,7 +55,7 @@ function Dashboard() {
             </Grid>
             <Grid item xs={12} sm={6} xl={3}>
               <MiniStatisticsCard
-                title={{ text: "new clients" }}
+                title={{ text: "new viewers" }}
                 count="+3,462"
                 percentage={{ color: "error", text: "-2%" }}
                 icon={{ color: "info", component: "emoji_events" }}
@@ -78,8 +63,8 @@ function Dashboard() {
             </Grid>
             <Grid item xs={12} sm={6} xl={3}>
               <MiniStatisticsCard
-                title={{ text: "sales" }}
-                count="$103,430"
+                title={{ text: "total views" }}
+                count="1,103,430"
                 percentage={{ color: "success", text: "+5%" }}
                 icon={{
                   color: "info",
@@ -115,7 +100,7 @@ function Dashboard() {
             </Grid>
             <Grid item xs={12} lg={7}>
               <GradientLineChart
-                title="Sales Overview"
+                title="Channel Growth"
                 description={
                   <SoftBox display="flex" alignItems="center">
                     <SoftBox fontSize={size.lg} color="success" mb={0.3} mr={0.5} lineHeight={0}>
@@ -124,7 +109,7 @@ function Dashboard() {
                     <SoftTypography variant="button" color="text" fontWeight="medium">
                       4% more{" "}
                       <SoftTypography variant="button" color="text" fontWeight="regular">
-                        in 2021
+                        in 2023
                       </SoftTypography>
                     </SoftTypography>
                   </SoftBox>
@@ -137,15 +122,15 @@ function Dashboard() {
         </SoftBox>
         <Grid container spacing={3}>
           <Grid item xs={12} md={6} lg={8}>
-            <Projects />
+            {/* <Projects /> */}
           </Grid>
           <Grid item xs={12} md={6} lg={4}>
-            <OrderOverview />
+            {/* <OrderOverview /> */}
           </Grid>
         </Grid>
       </SoftBox>
       <Footer />
-    </DashboardLayout>
+    </DashboardLayout>  
   );
 }
 
