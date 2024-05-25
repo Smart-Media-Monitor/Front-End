@@ -27,13 +27,20 @@ import OrderOverview from "layouts/dashboard/components/OrderOverview";
 import reportsBarChartData from "layouts/dashboard/data/reportsBarChartData";
 import gradientLineChartData from "layouts/dashboard/data/gradientLineChartData";
 
+import { useLocation } from "react-router-dom";
+
 function Dashboard() {
   const { size } = typography;
   const { chart, items } = reportsBarChartData;
+  const location = useLocation();
+  const { state } = location;
+
+  // Extract the username from the state object
+  const { username } = state || {};
 
   return (
     <DashboardLayout>
-      <DashboardNavbar />
+      <DashboardNavbar username={username} /> 
       <SoftBox py={3}>
         <SoftBox mb={3}>
           <Grid container spacing={3}>

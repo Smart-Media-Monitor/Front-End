@@ -1,45 +1,48 @@
-/**
-=========================================================
-* Soft UI Dashboard React - v4.0.1
-=========================================================
-
-* Product Page: https://www.creative-tim.com/product/soft-ui-dashboard-react
-* Copyright 2023 Creative Tim (https://www.creative-tim.com)
-
-Coded by www.creative-tim.com
-
- =========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-*/
-
-import { useState } from "react";
-
-// react-router-dom components
-import { Link } from "react-router-dom";
-
-// @mui material components
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import Card from "@mui/material/Card";
 import Checkbox from "@mui/material/Checkbox";
-
-// Soft UI Dashboard React components
 import SoftBox from "components/SoftBox";
 import SoftTypography from "components/SoftTypography";
 import SoftInput from "components/SoftInput";
 import SoftButton from "components/SoftButton";
-
-// Authentication layout components
 import BasicLayout from "layouts/authentication/components/BasicLayout";
-import Socials from "layouts/authentication/components/Socials";
-import Separator from "layouts/authentication/components/Separator";
-
-// Images
+import axios from "axios";
 import curved6 from "assets/images/curved-images/curved14.jpg";
 
 function SignUp() {
-  const [agreement, setAgremment] = useState(true);
+  const [agreement, setAgreement] = useState(true);
+  const [formData, setFormData] = useState({
+    username: "",
+    channel_id: "",
+    password: ""
+  });
+  const [error, setError] = useState("");
+  const navigate = useNavigate();
 
-  const handleSetAgremment = () => setAgremment(!agreement);
+  const handleSetAgreement = () => setAgreement(!agreement);
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (!agreement) {
+      setError("You must agree to the terms and conditions.");
+      return;
+    }
+
+    try {
+      const response = await axios.post("http://127.0.0.1:8000/signup/", formData);
+      console.log("Sign-up successful:", response.data);
+      navigate("/authentication/sign-in");
+    } catch (error) {
+      console.error("There was an error signing up:", error);
+      setError("Sign-up failed. Please try again.");
+    }
+  };
 
   return (
     <BasicLayout
@@ -53,30 +56,43 @@ function SignUp() {
             Register here!
           </SoftTypography>
         </SoftBox>
-        {/* <SoftBox mb={2}>
-          <Socials />
-        </SoftBox> */}
-        {/* <Separator /> */}
         <SoftBox pt={2} pb={3} px={3}>
-          <SoftBox component="form" role="form">
+          <SoftBox component="form" role="form" onSubmit={handleSubmit}>
             <SoftBox mb={2}>
-              <SoftInput placeholder="Name" />
+              <SoftInput
+                name="username"
+                placeholder="Username" // Change placeholder to "Username"
+                value={formData.username} // Update value to formData.username
+                onChange={handleChange}
+              />
             </SoftBox>
             <SoftBox mb={2}>
-              <SoftInput type="email" placeholder="Email" />
+            <SoftInput
+              type="text" // Keep type as "text"
+              name="channel_id" // Change name as needed
+              placeholder="Channel ID"
+              value={formData.channelId} // Update value to match formData property
+              onChange={handleChange}
+            />
             </SoftBox>
             <SoftBox mb={2}>
-              <SoftInput type="password" placeholder="Password" />
+              <SoftInput
+                type="password"
+                name="password"
+                placeholder="Password"
+                value={formData.password}
+                onChange={handleChange}
+              />
             </SoftBox>
             <SoftBox display="flex" alignItems="center">
-              <Checkbox checked={agreement} onChange={handleSetAgremment} />
+              <Checkbox checked={agreement} onChange={handleSetAgreement} />
               <SoftTypography
                 variant="button"
                 fontWeight="regular"
-                onClick={handleSetAgremment}
-                sx={{ cursor: "poiner", userSelect: "none" }}
+                onClick={handleSetAgreement}
+                sx={{ cursor: "pointer", userSelect: "none" }}
               >
-                &nbsp;&nbsp;I agree the&nbsp;
+                &nbsp;&nbsp;I agree to the&nbsp;
               </SoftTypography>
               <SoftTypography
                 component="a"
@@ -88,9 +104,16 @@ function SignUp() {
                 Terms and Conditions
               </SoftTypography>
             </SoftBox>
+            {error && (
+              <SoftBox mt={2} mb={2}>
+                <SoftTypography variant="caption" color="error">
+                  {error}
+                </SoftTypography>
+              </SoftBox>
+            )}
             <SoftBox mt={4} mb={1}>
-              <SoftButton variant="gradient" color="dark" fullWidth>
-                sign up
+              <SoftButton variant="gradient" color="dark" fullWidth type="submit">
+                Sign up
               </SoftButton>
             </SoftBox>
             <SoftBox mt={3} textAlign="center">

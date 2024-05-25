@@ -1,18 +1,3 @@
-/**
-=========================================================
-* Soft UI Dashboard React - v4.0.1
-=========================================================
-
-* Product Page: https://www.creative-tim.com/product/soft-ui-dashboard-react
-* Copyright 2023 Creative Tim (https://www.creative-tim.com)
-
-Coded by www.creative-tim.com
-
- =========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-*/
-
 import { useState, useEffect } from "react";
 
 // react-router components
@@ -55,10 +40,10 @@ import {
 } from "context";
 
 // Images
-import team2 from "assets/images/team-2.jpg";
+import team2 from "assets/images/team-2.jpg";  
 import logoSpotify from "assets/images/small-logos/logo-spotify.svg";
 
-function DashboardNavbar({ absolute, light, isMini }) {
+function DashboardNavbar({ absolute, light, isMini, username }) {
   const [navbarType, setNavbarType] = useState();
   const [controller, dispatch] = useSoftUIController();
   const { miniSidenav, transparentNavbar, fixedNavbar, openConfigurator } = controller;
@@ -147,31 +132,27 @@ function DashboardNavbar({ absolute, light, isMini }) {
         </SoftBox>
         {isMini ? null : (
           <SoftBox sx={(theme) => navbarRow(theme, { isMini })}>
-            <SoftBox pr={1}>
-              <SoftInput
-                placeholder="Type here..."
-                icon={{ component: "search", direction: "left" }}
-              />
-            </SoftBox>
             <SoftBox color={light ? "white" : "inherit"}>
-              <Link to="/authentication/sign-in">
-                <IconButton sx={navbarIconButton} size="small">
-                  <Icon
-                    sx={({ palette: { dark, white } }) => ({
-                      color: light ? white.main : dark.main,
-                    })}
-                  >
-                    account_circle
-                  </Icon>
-                  <SoftTypography
-                    variant="button"
-                    fontWeight="medium"
-                    color={light ? "white" : "dark"}
-                  >
-                    Sign in
-                  </SoftTypography>
-                </IconButton>
-              </Link>
+            {/* {username ? (
+      <SoftTypography variant="button" fontWeight="medium" color={light ? "white" : "dark"}>
+        Welcome, {console.log(username)}
+      </SoftTypography>
+    ) : (
+      <Link to="/authentication/sign-in">
+        <IconButton sx={navbarIconButton} size="small">
+          <Icon
+            sx={({ palette: { dark, white } }) => ({
+              color: light ? white.main : dark.main,
+            })}
+          >
+            account_circle 
+          </Icon>
+          <SoftTypography variant="button" fontWeight="medium" color={light ? "white" : "dark"}>
+            Sign in
+          </SoftTypography>
+        </IconButton>
+      </Link>
+    )} */}
               <IconButton
                 size="small"
                 color="inherit"
@@ -222,6 +203,7 @@ DashboardNavbar.propTypes = {
   absolute: PropTypes.bool,
   light: PropTypes.bool,
   isMini: PropTypes.bool,
+  username: PropTypes.string,
 };
 
 export default DashboardNavbar;
