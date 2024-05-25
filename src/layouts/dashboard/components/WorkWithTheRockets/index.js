@@ -1,11 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import Card from "@mui/material/Card";
-import Icon from "@mui/material/Icon";
-import InputBase from "@mui/material/InputBase";
-import Button from "@mui/material/Button";
-import SoftBox from "components/SoftBox";
-import SoftTypography from "components/SoftTypography";
-import Avatar from "@mui/material/Avatar";
+import { Card, Icon, InputBase, Button, Avatar } from '@mui/material';
+import SoftBox from 'components/SoftBox';
+import SoftTypography from 'components/SoftTypography';
 
 function WorkWithTheRockets() {
   const [messages, setMessages] = useState([]);
@@ -13,18 +9,23 @@ function WorkWithTheRockets() {
   const [isTyping, setIsTyping] = useState(false);
   const [typingDots, setTypingDots] = useState('');
 
-  const handleSendMessage = () => {
+  const handleSendMessage = async () => {
     if (input.trim()) {
       setMessages([...messages, { text: input, sender: 'user' }]);
       setInput('');
       setIsTyping(true);
       setTypingDots(''); // Reset typing dots
 
-      // Here you would typically call your API to get the response from the chatbot
-      setTimeout(() => {
-        setMessages(prevMessages => [...prevMessages, { text: 'This is a bot response', sender: 'bot' }]);
+      try {
+        // Make API call
+        const response = await fetch(`http://127.0.0.1:8000/query/?query=${input}`);
+        const data = await response.json();
+        setMessages(prevMessages => [...prevMessages, { text: data.response, sender: 'bot' }]);
+      } catch (error) {
+        console.error('Error sending message:', error);
+      } finally {
         setIsTyping(false);
-      }, 1000);
+      }
     }
   };
 
@@ -57,9 +58,9 @@ function WorkWithTheRockets() {
           }}
         >
           <SoftBox mb={3} pt={1}>
-            <SoftTypography variant="h5" color="text.primary" fontWeight="bold">
-              Interactive QnA with your Data!
-            </SoftTypography>
+             <SoftTypography variant="h5" fontWeight="bold">
+                Interactive QnA with your Data!
+              </SoftTypography>
           </SoftBox>
           <SoftBox mb={2} height="60%" overflow="auto" display="flex" flexDirection="column" sx={{ backgroundColor: 'white', borderRadius: '10px', p: 2 }}>
             {messages.map((message, index) => (

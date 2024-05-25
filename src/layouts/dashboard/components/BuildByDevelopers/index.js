@@ -58,9 +58,9 @@ function BuildByDevelopers() {
           <Grid item xs={12} lg={6}>
             <SoftBox display="flex" flexDirection="column" height="100%">
               <SoftBox pt={1} mb={0.5}>
-                {/* <SoftTypography variant="body2" color="text" fontWeight="medium">
-                  Labeled Comments
-                </SoftTypography> */}
+              <SoftTypography variant="h5" fontWeight="bold">
+                Sentiment Analysis 
+              </SoftTypography>
               </SoftBox>
               <SoftBox mb={2}>
                 <Select
@@ -96,6 +96,9 @@ function BuildByDevelopers() {
             </SoftBox>
           </Grid>
           <Grid item xs={12} lg={6}>
+          <SoftTypography variant="h5" fontWeight="bold">
+                Word Cloud
+              </SoftTypography>
             <SoftBox display="flex" justifyContent="center" alignItems="center" height="400px">
               {selectedOption ? (
                 <ReactWordcloud

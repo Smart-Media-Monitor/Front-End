@@ -23,6 +23,7 @@ import WorkWithTheRockets from "layouts/dashboard/components/WorkWithTheRockets"
 import Projects from "layouts/dashboard/components/Projects";
 import OrderOverview from "layouts/dashboard/components/OrderOverview";
 import Summary from "layouts/dashboard/components/Summary";
+import Script from "layouts/dashboard/components/Script";
 
 // Data
 import reportsBarChartData from "layouts/dashboard/data/reportsBarChartData";
@@ -101,7 +102,7 @@ function Dashboard() {
               </Card>
             </Grid>
             <Grid item xs={12} lg={7}>
-              <GradientLineChart
+              {/* <GradientLineChart
                 title="Channel Growth"
                 description={
                   <SoftBox display="flex" alignItems="center">
@@ -118,7 +119,8 @@ function Dashboard() {
                 }
                 height="20.25rem"
                 chart={gradientLineChartData}
-              />
+              /> */}
+              <Script />
             </Grid>
           </Grid>
         </SoftBox>

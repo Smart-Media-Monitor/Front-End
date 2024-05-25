@@ -38,8 +38,8 @@ const Summary = () => {
 
   return (
     <SoftBox display="flex" flexDirection="column" alignItems="left" justifyContent="center" p={2}>
-      <SoftTypography variant="body2" color="text" fontWeight="medium" mb={1} textAlign="left">
-        Summary
+      <SoftTypography variant="h5" fontWeight="bold">
+        Summary Generator 
       </SoftTypography>
       <Select
         value={selectedOption}
