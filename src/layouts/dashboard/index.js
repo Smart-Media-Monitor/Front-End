@@ -22,12 +22,14 @@ import BuildByDevelopers from "layouts/dashboard/components/BuildByDevelopers";
 import WorkWithTheRockets from "layouts/dashboard/components/WorkWithTheRockets";
 import Projects from "layouts/dashboard/components/Projects";
 import OrderOverview from "layouts/dashboard/components/OrderOverview";
+import Summary from "layouts/dashboard/components/Summary";
 
 // Data
 import reportsBarChartData from "layouts/dashboard/data/reportsBarChartData";
 import gradientLineChartData from "layouts/dashboard/data/gradientLineChartData";
 
 import { useLocation } from "react-router-dom";
+import { Card } from "@mui/material";
 
 function Dashboard() {
   const { size } = typography;
@@ -94,16 +96,9 @@ function Dashboard() {
         <SoftBox mb={3}>
           <Grid container spacing={3}>
             <Grid item xs={12} lg={5}>
-              <ReportsBarChart
-                title="active users"
-                description={
-                  <>
-                    (<strong>+23%</strong>) than last week
-                  </>
-                }
-                chart={chart}
-                items={items}
-              />
+              <Card>
+              <Summary />
+              </Card>
             </Grid>
             <Grid item xs={12} lg={7}>
               <GradientLineChart

@@ -32,6 +32,7 @@
     "react-flatpickr": "3.10.13",
     "react-router-dom": "6.11.1",
     "react-scripts": "5.0.1",
+    "react-wordcloud": "^1.2.7",
     "stylis": "4.2.0",
     "stylis-plugin-rtl": "2.1.1",
     "uuid": "9.0.0",

@@ -32,7 +32,9 @@ function SignIn() {
       const response = await axios.post("http://127.0.0.1:8000/login/", formData);
       console.log("Sign-in successful:", response.data);
       // Navigate to dashboard with username as parameter
-      navigate("/authentication/dashboard", { state: { username: formData.username } });
+      // // navigate("/authentication/dashboard", { state: { username: formData.username } });
+      // // navigate("Front-End/src/layouts/dashboard");
+      // navigate("/home/anas/Desktop/smart-media-monitor/Front-End/src/layouts/dashboard/index.js");
     } catch (error) {
       console.error("There was an error signing in:", error);
       setError("Sign-in failed. Please check your username and password and try again.");

@@ -37,6 +37,7 @@ function SignUp() {
     try {
       const response = await axios.post("http://127.0.0.1:8000/signup/", formData);
       console.log("Sign-up successful:", response.data);
+      alert("Sign-up successful. Please sign in.");
       navigate("/authentication/sign-in");
     } catch (error) {
       console.error("There was an error signing up:", error);
