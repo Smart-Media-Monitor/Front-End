@@ -1,4 +1,4 @@
-# Smart Media Monitor Front-End
+# Front-End
 
 ## Introduction
 This repository contains the React-based front-end for the Smart Media Monitor, a comprehensive tool designed to enhance media monitoring capabilities.
