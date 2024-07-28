@@ -2,11 +2,13 @@ import React, { useState } from 'react';
 import { Card, TextField, Button, Icon, InputAdornment } from '@mui/material';
 import SoftBox from 'components/SoftBox';
 import SoftTypography from 'components/SoftTypography';
+import ReactMarkdown from 'react-markdown';
 
 const ScriptGenerator = () => {
   const [topic, setTopic] = useState('');
   const [script, setScript] = useState('');
   const [isLoading, setIsLoading] = useState(false);
+  const [expanded, setExpanded] = useState(false);
 
   const handleGenerateScript = async () => {
     if (topic.trim()) {
@@ -22,6 +24,10 @@ const ScriptGenerator = () => {
         setIsLoading(false);
       }
     }
+  };
+
+  const toggleExpand = () => {
+    setExpanded(!expanded);
   };
 
   return (
@@ -79,10 +85,9 @@ const ScriptGenerator = () => {
           </Button>
         </SoftBox>
         {script && (
-          <SoftBox p={2} sx={{ backgroundColor: 'rgba(0, 0, 0, 0.05)', borderRadius: 1 }}>
-            <SoftTypography variant="body1" color="textPrimary">
-              {script}
-            </SoftTypography>
+          <SoftBox p={2} sx={{ backgroundColor: 'rgba(0, 0, 0, 0.05)', borderRadius: 1, height: expanded ? 'auto' : '200px', overflowY: 'auto' }}>
+            <ReactMarkdown sx={{ fontSize: '12px' }}>{script}</ReactMarkdown>
+            <Button onClick={toggleExpand} sx={{ mt: 2 }}>{expanded ? 'Collapse' : 'Expand'}</Button>
           </SoftBox>
         )}
       </SoftBox>

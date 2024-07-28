@@ -41,14 +41,14 @@ function BuildByDevelopers() {
       console.error('Error fetching comments:', error);
     }
   };
-
-  useEffect(() => {
-    if (selectedOption) {
-      fetchComments(selectedOption);
-      console.log('Fetching comments for:', selectedOption);
-    }
-  }, [selectedOption]);
-
+  
+    useEffect(() => {
+      if (selectedOption) {
+        fetchComments(selectedOption);
+        console.log('Fetching comments for:', selectedOption);
+      }
+    }, [selectedOption]);
+  
   const filteredComments = comments.slice(0, 5);
 
   return (

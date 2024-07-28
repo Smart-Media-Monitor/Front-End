@@ -1,13 +1,16 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Card, Icon, InputBase, Button, Avatar } from '@mui/material';
 import SoftBox from 'components/SoftBox';
 import SoftTypography from 'components/SoftTypography';
+import ReactMarkdown from 'react-markdown';
 
 function WorkWithTheRockets() {
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState('');
   const [isTyping, setIsTyping] = useState(false);
   const [typingDots, setTypingDots] = useState('');
+
+  const chatContainerRef = useRef(null);
 
   const handleSendMessage = async () => {
     if (input.trim()) {
@@ -43,9 +46,14 @@ function WorkWithTheRockets() {
     }
   }, [isTyping]);
 
+  // Scroll to the bottom of the chat container when new messages are added
+  useEffect(() => {
+    chatContainerRef.current.scrollTop = chatContainerRef.current.scrollHeight;
+  }, [messages]);
+
   return (
     <Card sx={{ height: "100%", borderRadius: 2}}>
-      <SoftBox position="relative" height="100%" p={2}>
+      <SoftBox position="absolute" height="100%" p={2}>
         <SoftBox
           display="flex"
           flexDirection="column"
@@ -62,7 +70,7 @@ function WorkWithTheRockets() {
                 Interactive QnA with your Data!
               </SoftTypography>
           </SoftBox>
-          <SoftBox mb={2} height="60%" overflow="auto" display="flex" flexDirection="column" sx={{ backgroundColor: 'white', borderRadius: '10px', p: 2 }}>
+          <SoftBox mb={2} height="60%" overflow="auto" display="flex" flexDirection="column" ref={chatContainerRef} sx={{ backgroundColor: 'white', borderRadius: '10px', p: 2 }}>
             {messages.map((message, index) => (
               <SoftBox
                 key={index}
@@ -84,9 +92,7 @@ function WorkWithTheRockets() {
                     color: message.sender === 'user' ? 'white' : 'text.primary',
                   }}
                 >
-                  <SoftTypography variant="body2">
-                    {message.text}
-                  </SoftTypography>
+                  <ReactMarkdown>{message.text}</ReactMarkdown>
                 </SoftBox>
                 {message.sender === 'user' && (
                   <Avatar sx={{ ml: 1, bgcolor: '#0084ff', color: 'white' }}>
